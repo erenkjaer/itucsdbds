@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" >
+    <title>Login</title>
+    <link rel="stylesheet "href="../static/style.css">
+</head>
+<body>
+    <div>
+        <div>
+            {% for restaurant in restaurants %}
+                <div >
+                    <ul>
+                        <li>Name:{{ restaurant[1] }}</li>
+                        <li>Address:{{ restaurant[3] }}</li>
+                        <li>Phonenumber:{{ restaurant[2] }}</li>
+                        
+                        <ul>
+                            {% for feature in features %}
+                            {% if feature[2] == restaurant[0] %}<li>{{ feature[1]}}</li> {% endif %} 
+                            {% endfor %} 
+                        </ul> 
+                                         
+                        <form action="/comment">
+                            <input type="submit" value="Comment">
+                        </form>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+     </div>
+</body>
